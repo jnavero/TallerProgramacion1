@@ -1,0 +1,65 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles del cliente</h2>
+
+<div class="jumbotron">
+    <p>Instrucciones: </p>
+    <strong>Requisito previo:</strong> Haber completado el ejercicio del listado.
+    <br />
+    En la clase CustomerService, debemos implementar:
+    <ul>
+        <li>Función llamada GetCustomer a la que le pasamos el Id del cliente (idCustomer) y nos debe retornar el cliente indicado.</li>
+    </ul>
+</div>
+
+<fieldset>
+    <legend>Cliente</legend>
+    @try
+    {
+        if (Model.IdCustomer != null)
+        {
+
+        <div class="display-label">
+            Id: @Model.IdCustomer
+        </div>
+        <br />
+        <div class="display-label">
+            Nombre
+        </div>
+        <div class="display-field">
+            @Model.Name
+        </div>
+
+        <div class="display-label">
+            Apellidos
+        </div>
+        <div class="display-field">
+            @Model.Surname1 @Model.Surname2
+        </div>
+
+        <div class="display-label">
+            ¿Es Moroso?
+        </div>
+        <div class="display-field">
+            @Model.EsMoroso
+        </div>
+
+        <div class="display-label">
+            Observaciones
+        </div>
+        <div class="display-field">
+            @Model.Comments
+        </div>
+        }
+    }
+    catch { }
+
+
+</fieldset>
+<p>
+    @Html.ActionLink("Volver al listado", "Listado")
+</p>

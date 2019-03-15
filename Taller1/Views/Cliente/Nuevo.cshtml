@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Nuevo cliente";
+}
+
+<div class="Contenedor1col">
+
+    <h2>@ViewBag.Title</h2>
+
+    <div class="jumbotron">
+        <p>Instrucciones: </p>
+        <strong>Requisito previo:</strong> Haber completado el ejercicio del listado.
+        <br />
+        En la clase CustomerService, debemos implementar:
+        <ul>
+            <li>Función llamada NewCustomer a la que le pasamos un cliente y se agrega a la lista creada en el ejercicio del listado.</li>
+        </ul>
+    </div>
+
+    <form action="/Cliente/Nuevo" method="post">
+        <fieldset>
+            <legend>Nuevo cliente</legend>
+
+            <div class="editor-label">
+                Nombre:
+            </div>
+            <div class="editor-field">
+                <input type="text" class="textboxLargo" name="Name" />
+            </div>
+            <div class="editor-label">
+                Apellidos:
+            </div>
+            <div class="editor-field">
+                <input type="text" class="textboxNormal" name="Surname1" />
+                <input type="text" class="textboxNormal" name="Surname2" />
+            </div>
+            <div class="editor-field">
+                ¿Es Moroso?: <input type="checkbox" name="IsDefaulter" />
+            </div>
+            <br />
+            <div class="editor-label">
+                Observaciones:
+            </div>
+
+            <textarea class="textArea" name="Comments"></textarea>
+
+            <div class="centrado">
+                <input type="submit" value="Añadir Cliente" />
+            </div>
+
+        </fieldset>
+
+    </form>
+</div>

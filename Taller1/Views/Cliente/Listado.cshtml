@@ -1,0 +1,80 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewBag.Title = "Listado";
+}
+<h2>Listado de Clientes</h2>
+<div class="jumbotron">
+    <p>Instrucciones: </p>
+    Para este ejercicio, se deberá completar la clase Customer del proyecto <b>"Model"</b>
+    <br />dicha clase debe heredar de la clase People.
+    <br />La clase People contendrá las siguientes propiedades:
+    <ul>
+        <li>Name</li>
+        <li>Surname1</li>
+        <li>Surname2</li>
+        <li>Phone</li>
+    </ul>
+    Mientras que la clase Customer contendrá las siguientes propiedades:
+    <ul>
+        <li>IdCustomer</li>
+        <li>CustomerType</li>
+        <li>IsDefaulter</li>
+        <li>Antiquity</li>
+        <li>Comments</li>
+    </ul>
+    El tipo de cliente puede ser Profesional, Particular u Otros. <br />
+    Por ultimo se debe crear en clase llamada CustomerService la funcion GetCustomers.
+    <ul>
+        <li>Funcion llamada GetCustomers sin parametros que retornará una lista de clientes.</li>
+    </ul>
+</div>
+
+<strong>Listado de Clientes</strong>
+<table>
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido 1
+        </th>
+        <th>
+            Apellido 2
+        </th>
+        <th>
+            ¿Es moroso?
+        </th>
+        <th>
+            Antiquity
+        </th>
+    </tr>
+
+    @try
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Surname1
+                </td>
+                <td>
+                    @item.Surname2
+                </td>
+                <td>
+                    @item.IsDefaulter
+                </td>
+                <td>
+                    @item.Antiquity
+                </td>
+                <td>
+                    @Html.ActionLink("Detalles", "Detalles", new { idCustomer = item.IdCustomer }) |
+                </td>
+            </tr>
+        }
+    }
+    catch { }
+
+</table>
